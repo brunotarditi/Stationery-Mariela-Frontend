@@ -13,10 +13,11 @@
     /* colors */
   --primary-color: #009FA5;
   --panel-color: #FFF;
-  --text-black: #000;
+  --text-color: #000;
   --dark-light-color: #202020;
   --border-color: #e6e5e5;
   --toggle-color: #DDD;
+  --toggle-position: 5px;
 
   /* transition */
   --tran-05: all 0.5s ease;
@@ -27,4 +28,14 @@
 body{
   min-width: 100vh;
   background-color: var(--primary-color);
+}
+
+body.dark {
+  --primary-color: #202020;
+  --panel-color: #191a1a;
+  --text-color: #DDD;
+  --dark-light-color: #FFF;
+  --border-color: #4D4C4C;
+  --toggle-color: #FFF;
+  --toggle-position: 20px;
 }
