@@ -11,13 +11,15 @@
 
 :root{
     /* colors */
-  --primary-color: #009FA5;
+  --primary-color: #576CBC;
   --panel-color: #FFF;
   --text-color: #000;
   --dark-light-color: #202020;
   --border-color: #e6e5e5;
   --toggle-color: #DDD;
   --toggle-position: 5px;
+  --title-icon-color: #FFF;
+  --box-color: #C0DBEA;
 
   /* transition */
   --tran-05: all 0.5s ease;
@@ -31,11 +33,14 @@ body{
 }
 
 body.dark {
-  --primary-color: #202020;
+  --primary-color: #DDD;
   --panel-color: #191a1a;
   --text-color: #DDD;
   --dark-light-color: #FFF;
   --border-color: #4D4C4C;
   --toggle-color: #FFF;
   --toggle-position: 20px;
+  --title-icon-color: #191a1a;
+  --box-color: #2c3032;
 }
+

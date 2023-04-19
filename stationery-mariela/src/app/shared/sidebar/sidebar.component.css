@@ -7,6 +7,11 @@ nav{
   padding: 10px 14px;
   background-color: var(--panel-color);
   border-right: 2px solid var(--border-color);
+  transition: var(--tran-05);
+}
+
+nav.close{
+  width: 78px;
 }
 
 nav .logo-name{
@@ -17,11 +22,11 @@ nav .logo-name{
 nav .logo-image{
   display: flex;
   justify-content: center;
-  min-width: 60px;
+  min-width: 50px;
 }
 
 nav .logo-image img{
-  width: 55px;
+  width: 50px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -31,6 +36,12 @@ nav .logo-name .logo_name{
   font-weight: 500;
   margin-left: 10px;
   color: var(--text-color);
+  transition: var(--tran-02);
+}
+
+nav.close .logo_name {
+  opacity: 0;
+  pointer-events: none;
 }
 
 nav .menu-items{
@@ -77,6 +88,12 @@ nav .menu-items{
   font-size: 18px;
   font-weight: 400;
   color: var(--dark-light-color);
+  transition: var(--tran-05);
+}
+
+nav.close li a .link-name {
+  opacity: 0;
+  pointer-events: none;
 }
 .nav-links li a:hover i,
 .nav-links li a:hover .link-name {
@@ -91,6 +108,7 @@ nav .menu-items{
 .menu-items .mode{
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .menu-items .mode-toggle{
@@ -125,4 +143,67 @@ nav .menu-items{
   background-color: var(--panel-color);
   border-radius: 50%;
   transition: var(--tran-03);
+}
+
+
+@media (max-width: 1000px) {
+  nav{
+    width: 78px;
+  }
+
+  nav.close{
+    width: 250px;
+  }
+
+  nav .logo_name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav.close .logo_name {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  nav li a .link-name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav.close li a .link-name {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  nav{
+    width: 78px;
+  }
+
+  nav.close{
+    width: 78px;
+  }
+
+  nav .logo_name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav.close .logo_name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav li a .link-name {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  nav.close li a .link-name {
+    opacity: 0;
+    pointer-events: none;
+  }
 }

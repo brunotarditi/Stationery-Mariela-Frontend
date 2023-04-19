@@ -1,4 +1,4 @@
-<nav>
+<nav #nav>
   <div class="logo-name">
     <div class="logo-image">
       <img src="./../../../assets/logo.png" alt="logo">
@@ -52,12 +52,12 @@
       </li>
       <li class="mode">
         <a href="#">
-          <i class="uil uil-moon"></i>
-          <span class="link-name">dark mode</span>
+          <i [ngClass]="iconMode"></i>
+          <span class="link-name">{{changeMode}}</span>
         </a>
 
         <div class="mode-toggle">
-          <span #switch class="switch" (click)="toggleTheme()"></span>
+          <span class="switch" (click)="toggleTheme()"></span>
         </div>
       </li>
     </ul>
