@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { StorageService } from 'src/app/shared/services/storage.service';
 import { StylesService } from 'src/app/shared/services/styles.service';
 
@@ -8,17 +8,20 @@ import { StylesService } from 'src/app/shared/services/styles.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  @ViewChild('nav') nav!: ElementRef;
   changeMode: string = 'Modo oscuro';
   iconMode: string = 'uil uil-moon';
+  status: string = '';
 
   constructor(
-    private renderer2: Renderer2,
     private stylesService: StylesService,
     private storageService: StorageService) { }
 
   ngOnInit(): void {
     this.openOrCloseSidebar();
+    if(this.storageService.exist('status')){
+      const status = this.storageService.get('status');
+      this.status = status;
+    }
   }
 
   toggleTheme() {
@@ -35,14 +38,8 @@ export class SidebarComponent implements OnInit {
   openOrCloseSidebar(){
     this.stylesService.sidebar$.subscribe({
       next: (data: string) => {
-        const active = this.nav.nativeElement.classList.contains('close');
-        this.renderer2[active ? 'removeClass' : 'addClass'](this.nav.nativeElement, data);
-        if (active) {
-          this.storageService.set('status', 'close')
-        }else{
-          this.storageService.set('status', 'open')
-
-        }
+        this.status = data;
+        this.storageService.set('status', data);
       },
       error: (err: string) => console.log(err)
     })

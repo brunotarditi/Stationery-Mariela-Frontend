@@ -20,7 +20,9 @@
   --toggle-color: #DDD;
   --toggle-position: 5px;
   --title-icon-color: #FFF;
-  --box-color: #C0DBEA;
+  --box1-color: #C0DBEA;
+  --box2-color: #C7E9B0;
+  --box3-color: #FDF7C3;
 
   /* transition */
   --tran-05: all 0.5s ease;
@@ -43,6 +45,8 @@ body.dark {
   --toggle-color: #FFF;
   --toggle-position: 20px;
   --title-icon-color: #FFF;
-  --box-color: #2c3032;
+  --box1-color: #2c3032;
+  --box2-color: #2c3032;
+  --box3-color: #2c3032;
 }
 

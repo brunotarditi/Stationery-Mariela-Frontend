@@ -1,4 +1,4 @@
-<nav #nav>
+<nav [ngClass]="status">
   <div class="logo-name">
     <div class="logo-image">
       <img src="./../../../assets/img/logo.png" alt="logo">
@@ -12,15 +12,15 @@
   <div class="menu-items">
     <ul class="nav-links">
       <li>
-        <a href="#">
+        <a routerLink="/dashboard">
           <i class="uil uil-home"></i>
           <span class="link-name">Dashboard</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a routerLink="/products">
           <i class="uil uil-store"></i>
-          <span class="link-name">Productos</span>
+          <span class="link-name" >Productos</span>
         </a>
       </li>
       <li>

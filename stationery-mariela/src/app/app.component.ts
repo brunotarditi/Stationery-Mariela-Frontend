@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild, Renderer2 } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { StylesService } from './shared/services/styles.service';
 import { StorageService } from './shared/services/storage.service';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
@@ -10,21 +9,14 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 })
 export class AppComponent implements OnInit {
 
-  active: string = "open";
-  @ViewChild(SidebarComponent) sidebar!: SidebarComponent;
-
+  status: string = '';
   constructor(
-    private stylesService: StylesService,
     private storageService: StorageService,
-    private renderer2: Renderer2){}
+    private stylesService: StylesService){}
 
   ngOnInit(): void {
     this.modeInStorage();
-  }
-
-  toggleSidebar(){
-    this.stylesService.sidebar$.emit('close');
-    this.active = this.active === 'open' ? 'close': 'open';
+    this.openOrCloseSidebar();
   }
 
   modeInStorage(){
@@ -32,6 +24,19 @@ export class AppComponent implements OnInit {
     if(mode && mode === 'dark'){
       document.body.classList.toggle('dark');
     }
+  }
+
+  openOrCloseSidebar(){
+    if (this.storageService.exist('status')) {
+      this.status = this.storageService.get('status');
+    }
+    this.stylesService.sidebar$.subscribe({
+      next: (data: string) => {
+        this.status = data;
+        this.storageService.set('status', data);
+      },
+      error: (err: string) => console.log(err)
+    })
   }
 
 }

@@ -1,0 +1,28 @@
+.top .search-box input{
+  position: absolute;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--panel-color);
+  padding: 0 25px 0 50px;
+  height: 100%;
+  width: 100%;
+  color: var(--text-color);
+  font-size: 15px;
+  font-weight: 400;
+  outline: none;
+}
+
+.top .search-box i{
+  position: absolute;
+  left: 15px;
+  font-size: 20px;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dark-light-color);
+}
+
+.top img{
+  width: 40px;
+  border-radius: 50%;
+}

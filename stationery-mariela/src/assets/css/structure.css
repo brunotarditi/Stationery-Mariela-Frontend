@@ -1,0 +1,105 @@
+.dashboard {
+  position: relative;
+  left: 250px;
+  background-color: var(--panel-color);
+  min-height: 100vh;
+  width: calc(100% - 250px);
+  padding: 10px 14px;
+  transition: var(--tran-05);
+}
+
+app-sidebar.close ~ .dashboard{
+  left: 78px;
+  width: calc(100% - 78px);
+}
+
+.nav .close ~ .dashboard{
+  left: 78px;
+  width: calc(100% - 78px);
+}
+
+.dashboard .top {
+  position: fixed;
+  top: 0;
+  left: 250px;
+  display: flex;
+  width: calc(100% - 250px);
+  padding: 10px 30px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--panel-color);
+  transition: var(--tran-05);
+}
+
+app-sidebar.close ~ .dashboard .top{
+  left: 78px;
+  width: calc(100% - 78px);
+}
+
+.dashboard .top .sidebar-toggle{
+  font-size: 26px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.dashboard .top .search-box{
+  position: relative;
+  height: 45px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 30px;
+}
+
+.dashboard .dash-content{
+  padding-top: 50px;
+}
+
+@media (max-width: 1000px) {
+  app-sidebar ~ .dashboard{
+    left: 78px;
+    width: calc(100% - 78px);
+  }
+
+  app-sidebar.close ~ .dashboard{
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+
+  app-sidebar ~ .dashboard .top{
+    left: 78px;
+    width: calc(100% - 78px);
+  }
+
+  app-sidebar.close ~ .dashboard .top{
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+}
+
+
+@media (max-width: 500px) {
+  app-sidebar ~ .dashboard{
+    left: 78px;
+    width: calc(100% - 78px);
+  }
+
+  app-sidebar.close ~ .dashboard{
+    left: 78px;
+    width: calc(100% - 78px);
+  }
+
+  app-sidebar ~ .dashboard .top{
+    left: 78px;
+    width: calc(100% - 78px);
+  }
+
+  app-sidebar.close ~ .dashboard .top{
+    left: 78px;
+    width: calc(100% - 78px);
+  }
+
+  .dashboard .top .sidebar-toggle{
+    display: none;
+  }
+
+}
