@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { TitleComponent } from './shared/components/title/title.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent
+    SidebarComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,

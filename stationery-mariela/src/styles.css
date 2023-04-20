@@ -12,8 +12,9 @@
 :root{
     /* colors */
   --primary-color: #576CBC;
+  --navlink-color: #576CBC;
   --panel-color: #FFF;
-  --text-color: #000;
+  --text-color: #202020;
   --dark-light-color: #202020;
   --border-color: #e6e5e5;
   --toggle-color: #DDD;
@@ -28,19 +29,20 @@
 }
 
 body{
-  min-width: 100vh;
-  background-color: var(--primary-color);
+  min-height: 100vh;
+  background-color: var(--panel-color);
 }
 
 body.dark {
-  --primary-color: #DDD;
-  --panel-color: #191a1a;
-  --text-color: #DDD;
+  --primary-color: #2c3032;
+  --navlink-color: #DDD;
+  --panel-color: #202020;
+  --text-color: #FFF;
   --dark-light-color: #FFF;
   --border-color: #4D4C4C;
   --toggle-color: #FFF;
   --toggle-position: 20px;
-  --title-icon-color: #191a1a;
+  --title-icon-color: #FFF;
   --box-color: #2c3032;
 }
 

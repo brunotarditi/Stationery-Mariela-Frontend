@@ -71,7 +71,7 @@ nav .menu-items{
   height: 5px;
   width: 5px;
   border-radius: 50%;
-  background-color: var(--primary-color);
+  background-color: var(--navlink-color);
 }
 
 .menu-items li a i{
@@ -97,7 +97,7 @@ nav.close li a .link-name {
 }
 .nav-links li a:hover i,
 .nav-links li a:hover .link-name {
-  color: var(--primary-color);
+  color: var(--navlink-color);
 }
 
 .menu-items .logout-mode {
