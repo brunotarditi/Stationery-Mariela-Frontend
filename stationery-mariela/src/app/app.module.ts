@@ -10,12 +10,14 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { HomeComponent } from './layout/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
