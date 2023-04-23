@@ -1,34 +1,79 @@
 <header class="header">
   <nav class="nav">
     <a href="" class="nav_logo">Librería Mariela</a>
-    <button class="button" (click)="openForm()">Login</button>
+    <button class="button btn_login" [ngClass]="active" (click)="getForm()">Iniciar sesión</button>
+    <button class="button btn_signup" [ngClass]="active" (click)="getForm()">Registro</button>
   </nav>
 </header>
 
 <section class="background" [ngClass]="show">
-  <div class="form_container">
+  <div class="form_container" [ngClass]="active">
     <i class="uil uil-times form_close" (click)="closeForm()"></i>
+    <!-- Login form -->
     <div class="form login_form">
       <form action="">
-        <h2>Login</h2>
+        <h2>Iniciar sesión</h2>
+        <!-- Fields -->
         <div class="input_box">
-          <input type="email" placeholder="Ingresa tu correo electrónico" required/>
+          <input type="email" placeholder="Ingresa tu correo electrónico" required />
           <i class="uil uil-envelope email"></i>
         </div>
         <div class="input_box">
-          <input type="password" placeholder="Ingresa tu contraseña" required/>
+          <input [type]="icons[0].changeIcon ? 'password' : 'text'" placeholder="Ingresa tu contraseña" required />
           <i class="uil uil-lock password"></i>
-          <i class="uil uil-eye-slash pw_hide"></i>
+          <i (click)="changeTypeAndIcon(0)" [ngClass]="icons[0].changeIcon ? 'uil uil-eye-slash pw_hide' : 'uil uil-eye pw_hide'"></i>
         </div>
+        <!-- Options fields -->
         <div class="option_field">
           <a href="" class="forgot_pw">¿Olvidaste la contraseña?</a>
         </div>
 
+        <!-- Button action -->
         <button class="button" (click)="login()">Login</button>
         <div class="login_signup">
-          ¿No tienes cuenta? <a href="" id="signup">Registrate</a>
+          ¿No tienes cuenta? <a [routerLink]="" (click)="signUpBtn()">Registrate</a>
         </div>
       </form>
+    </div>
+    <!-- Register form -->
+    <div class="form signup_form">
+      <form action="">
+        <h2>Registro</h2>
+        <!-- Fields -->
+        <div class="input_box">
+          <input type="text" placeholder="Nombre" required />
+          <i class="uil uil-user-square info"></i>
+        </div>
+        <div class="input_box">
+          <input type="text" placeholder="Apellido" required />
+          <i class="uil uil-user-square info"></i>
+        </div>
+        <div class="input_box">
+          <input type="email" placeholder="Ingresa tu correo electrónico" required />
+          <i class="uil uil-envelope email"></i>
+        </div>
+        <div class="input_box">
+          <input [type]="icons[1].changeIcon ? 'password' : 'text'" placeholder="Crea tu contraseña" required />
+            <i class="uil uil-lock password"></i>
+            <i (click)="changeTypeAndIcon(1)" [ngClass]="icons[1].changeIcon ? 'uil uil-eye-slash pw_hide' : 'uil uil-eye pw_hide'"></i>
+          </div>
+          <div class="input_box">
+            <input [type]="icons[2].changeIcon ? 'password' : 'text'" placeholder="Confirma tu contraseña" required />
+            <i class="uil uil-lock password"></i>
+            <i (click)="changeTypeAndIcon(2)" [ngClass]="icons[2].changeIcon ? 'uil uil-eye-slash pw_hide' : 'uil uil-eye pw_hide'"></i>
+        </div>
+        <!-- Options fields -->
+        <div class="option_field">
+          <a [routerLink]="" class="forgot_pw">¿Olvidaste la contraseña?</a>
+        </div>
+
+        <!-- Button action -->
+        <button class="button" (click)="register()">Registrarse</button>
+        <div class="login_signup">
+          ¿Ya tienes una cuenta? <a [routerLink]="" (click)="loginBtn($event)">Inicia sesión</a>
+        </div>
+      </form>
+
     </div>
   </div>
 </section>

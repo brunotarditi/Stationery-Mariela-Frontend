@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -7,13 +7,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
-  show: string = '';
+  show: string = 'show';
+  active: string = '';
+  icons: {id: number, changeIcon: boolean}[] = [
+    {id:1, changeIcon: true},
+    {id:2, changeIcon: true},
+    {id:3, changeIcon: true}
+  ]
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  openForm(){
+  getForm(){
     this.show = 'show';
   }
 
@@ -21,8 +27,24 @@ export class AuthComponent implements OnInit {
     this.show = '';
   }
 
+
+  signUpBtn(){
+    this.active = 'active'
+  }
+
+  loginBtn(e:any){
+    this.active = '';
+  }
+
   login(){
-    this.router.navigate(['/dashboard'])
+    this.router.navigate(['/dashboard']);
+  }
+
+  register(){
+    this.router.navigate(['/dashboard']);
+  }
+  changeTypeAndIcon(id: number){
+      this.icons[id].changeIcon = !this.icons[id].changeIcon;
   }
 
 }

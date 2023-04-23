@@ -1,5 +1,6 @@
 a{
   text-decoration: none;
+  cursor: pointer;
 }
 
 .header{
@@ -32,9 +33,7 @@ a{
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url('./../../../assets/img/fondo.jpg');
-  background-size: cover;
-  background-position: center;
+  background-color: #576CBC;
 }
 
 .background::before {
@@ -42,7 +41,7 @@ a{
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 100;
   opacity: 0;
   pointer-events: none;
@@ -64,6 +63,18 @@ a{
   pointer-events: auto;
 }
 
+.btn_signup{
+  display: none;
+}
+
+.btn_login.active{
+  display: none;
+}
+
+.btn_signup.active{
+  display: block;
+}
+
 .button:active{
   transform: scale(0.98);
 }
@@ -72,17 +83,29 @@ a{
   position: absolute;
   top: 50%;
   left: 50%;
-  max-width: 320px;
+  max-width: 350px;
   width: 100%;
   transform: translate(-50%, -50%);
   z-index: 101;
   background-color: #FFF;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s ease-out ;
+}
+
+.signup_form{
+  display: none;
+}
+
+.form_container.active .signup_form{
+  display: block;
+}
+
+.form_container.active .login_form{
+  display: none;
 }
 
 .background.show .form_container{
@@ -136,19 +159,22 @@ a{
 }
 
 .input_box i.email,
+.input_box i.info,
 .input_box i.password{
   left: 0;
   color: #333;
 }
 
 .input_box input:focus ~ i.email,
+.input_box input:focus ~ i.info,
 .input_box input:focus ~ i.password{
   color: #576CBC;
 }
 
 .input_box i.pw_hide{
   right: 0;
-  font-size: 18px
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .option_field{
