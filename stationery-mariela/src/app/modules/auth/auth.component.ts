@@ -27,7 +27,6 @@ export class AuthComponent implements OnInit {
     this.show = '';
   }
 
-
   signUpBtn(){
     this.active = 'active'
   }
