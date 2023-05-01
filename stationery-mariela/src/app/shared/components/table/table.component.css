@@ -1,0 +1,51 @@
+
+.table{
+  width: 95%;
+  height: 89%;
+  background-color: #fff5;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: auto;
+}
+
+.table::-webkit-scrollbar{
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.table::-webkit-scrollbar-thumb{
+  border-radius: .5rem;
+  background-color: #0004;
+  visibility: hidden;
+}
+
+.table:hover::-webkit-scrollbar-thumb{
+  visibility: visible;
+}
+
+table{
+  width: 100%;
+}
+
+table, th, td{
+  border-collapse: collapse;
+  padding: 1rem;
+  text-align: left;
+}
+
+thead th{
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #d5d1de;
+}
+
+tbody tr:nth-child(even){
+  background-color: #0000000b;
+}
+
+tbody tr:hover{
+  background-color: #fff6ff;
+  cursor: pointer;
+}
+
