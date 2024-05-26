@@ -3,13 +3,13 @@
     <thead>
       <tr>
         <th *ngFor="let x of dataTable.headers">
-          {{ x.key }}
+          {{ x.name }}
         </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let data of dataTable.data">
-        <td *ngFor="let h of dataTable.headers; let i = index">
+        <td *ngFor="let h of dataTable.headers">
           {{ data[h.key]}}
         </td>
       </tr>

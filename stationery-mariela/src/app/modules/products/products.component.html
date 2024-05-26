@@ -1,8 +1,9 @@
-<!-- <div class="container-table"> -->
   <div class="app-table">
     <app-table #tabProducts></app-table>
   </div>
   <div class="app-pagination">
-    <app-pagination [links]="[1,2,3,4]"></app-pagination>
+    <app-pagination
+    [isFirst]="isFirst"
+    [isLast]="isLast"
+    [links]="totalPages"></app-pagination>
   </div>
-<!-- </div> -->

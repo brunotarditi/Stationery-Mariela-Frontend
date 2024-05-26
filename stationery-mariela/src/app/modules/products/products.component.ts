@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { error } from 'console';
 import { Product } from 'src/app/models/product';
+import { ProductsService } from 'src/app/services/products.service';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
 import { DynamicTable } from 'src/app/shared/interfaces/dynamicTable';
 import { HeaderTable } from 'src/app/shared/interfaces/headerTable';
@@ -12,22 +14,43 @@ import { HeaderTable } from 'src/app/shared/interfaces/headerTable';
 export class ProductsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('tabProducts') tabProducts: TableComponent;
-  products: Product[];
+  products: Array<any>;
   dataTable: DynamicTable;
-
-  constructor() { }
+  headers: HeaderTable[];
+  page: number = 0;
+  size: number = 5;
+  order: string = 'id';
+  asc: boolean = true;
+  isFirst: boolean = false;
+  isLast: boolean = false;
+  totalPages: Array<number>;
+  constructor(private productService: ProductsService) { }
 
   ngAfterViewInit(): void {
-    const headers = ['id', 'name', 'description', 'price'].map((x, i) => ({key: x, index: i} as HeaderTable));
-    this.products = [
-      { id: 1, name: 'Lapiz', description: 'Lapiz Faber Castell de 10 miligramos', price: 120 },
-      { id: 2, name: 'Regla', description: 'Regla Maped de 20 centímetros', price: 200 },
-      { id: 3, name: 'Tijera', description: 'Tijera Maped con agarre de plástico', price: 240 }
+    this.headers = [
+      {key: 'id', name: 'ID'},
+      {key: 'name', name: 'Nombre'},
+      {key: 'description', name: 'Descripción'},
+      {key: 'price', name: 'Precio'},
     ];
-    // this.dataTable = {headers: headers, data: this.products}
-    this.tabProducts.renderTab(headers, this.products)
+    this.getProductsByPages();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
+
+  getProductsByPages(){
+    this.productService.getProductsByPages(this.page, this.size, this.order, this.asc).subscribe({
+      next: (data) => {
+        this.products = data.content;
+        this.isFirst = data.first;
+        this.isLast = data.last;
+        this.totalPages = new Array(data.totalPages);
+        this.tabProducts.renderTab(this.headers, this.products);
+        console.log(data)
+      },
+      error: (err) => { console.error(err) }
+    });
+  }
 
 }

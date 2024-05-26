@@ -49,13 +49,13 @@
 }
 .btn-arrow:hover,
 .page-link:hover{
-  background: #576CBC;
+  background: var(--primary-color);
   color: #FFF;
 }
 
 .page-link.active{
-  background: #576CBC;
-  color: #FFF;
+  background: var(--primary-color);
+  color: var(--title-icon-color);
 }
 
 

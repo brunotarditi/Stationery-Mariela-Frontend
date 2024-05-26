@@ -3,14 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //modules
 import { AppRoutingModule } from './app-routing.module';
-import { DashboardModule } from './modules/dashboard/dashboard.module';
-
 
 //components
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { HomeComponent } from './layout/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +21,7 @@ import { HomeComponent } from './layout/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

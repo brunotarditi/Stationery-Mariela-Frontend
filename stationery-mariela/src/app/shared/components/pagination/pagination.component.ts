@@ -7,7 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
 
-  @Input() links: number[];
+  @Input() links: Array<number>;
+  @Input() isFirst: boolean = false;
+  @Input() isLast: boolean = false;
   currentStep: number = 1;
 
   constructor() { }
@@ -18,10 +20,16 @@ export class PaginationComponent implements OnInit {
     this.currentStep = index + 1;
   }
   startBtn(){
+    if (!this.isFirst) {
+
+    }
     this.currentStep = 1;
   }
 
   prevBtn(){
+    if (!this.isLast) {
+
+    }
     if (this.currentStep > 0) {
       this.currentStep = this.currentStep - 1;
     }
