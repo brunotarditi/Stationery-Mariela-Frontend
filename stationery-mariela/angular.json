@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "stationery-mariela:build:production"
+              "buildTarget": "stationery-mariela:build:production"
             },
             "development": {
-              "browserTarget": "stationery-mariela:build:development"
+              "buildTarget": "stationery-mariela:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "stationery-mariela:build"
+            "buildTarget": "stationery-mariela:build"
           }
         },
         "test": {
@@ -101,6 +101,5 @@
         }
       }
     }
-  },
-  "defaultProject": "stationery-mariela"
+  }
 }
