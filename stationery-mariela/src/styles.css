@@ -50,3 +50,6 @@ body.dark {
   --box3-color: #2c3032;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
