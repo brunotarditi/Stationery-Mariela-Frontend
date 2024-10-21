@@ -4,6 +4,7 @@ import { StylesService } from 'src/app/shared/services/styles.service';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -17,11 +18,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleSidebar(){
+  toggleSidebar() {
     if (this.storageService.exist('status')) {
       this.status = this.storageService.get('status') === 'close' ? 'open' : 'close';
       this.stylesService.sidebar$.emit(this.status);
-    }else{
+    } else {
       this.stylesService.sidebar$.emit('close');
     }
   }

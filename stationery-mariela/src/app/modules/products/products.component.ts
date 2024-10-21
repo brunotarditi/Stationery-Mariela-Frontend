@@ -1,6 +1,4 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { error } from 'console';
-import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
 import { DynamicTable } from 'src/app/shared/interfaces/dynamicTable';
@@ -28,10 +26,10 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.headers = [
-      {key: 'id', name: 'ID'},
-      {key: 'name', name: 'Nombre'},
-      {key: 'description', name: 'Descripción'},
-      {key: 'price', name: 'Precio'},
+      { key: 'id', name: 'ID' },
+      { key: 'name', name: 'Nombre' },
+      { key: 'description', name: 'Descripción' },
+      { key: 'price', name: 'Precio' },
     ];
     this.getProductsByPages();
   }
@@ -39,7 +37,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  getProductsByPages(){
+  getProductsByPages() {
     this.productService.getProductsByPages(this.page, this.size, this.order, this.asc).subscribe({
       next: (data) => {
         this.products = data.content;

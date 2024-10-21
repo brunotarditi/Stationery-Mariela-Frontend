@@ -1,9 +1,12 @@
-import { Component, OnInit} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/shared/services/storage.service';
 import { StylesService } from 'src/app/shared/services/styles.service';
 
 @Component({
   selector: 'app-sidebar',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
@@ -18,7 +21,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.openOrCloseSidebar();
-    if(this.storageService.exist('status')){
+    if (this.storageService.exist('status')) {
       const status = this.storageService.get('status');
       this.status = status;
     }
@@ -30,12 +33,12 @@ export class SidebarComponent implements OnInit {
     document.body.classList.toggle('dark');
     if (document.body.classList.contains('dark')) {
       this.storageService.set('mode', 'dark')
-    }else{
+    } else {
       this.storageService.set('mode', 'light')
     }
   }
 
-  openOrCloseSidebar(){
+  openOrCloseSidebar() {
     this.stylesService.sidebar$.subscribe({
       next: (data: string) => {
         this.status = data;
